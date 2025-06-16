@@ -3,3 +3,4 @@ __pycache__/
 data/processed/
 mlruns/
 .DS_Store
+key.json
