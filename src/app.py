@@ -25,7 +25,3 @@ def predict(input: EmailInput):
     prob = model.predict_proba(vector).max()
     label = "Phishing" if pred == 1 else "Safe"
     return {"label": label, "confidence": round(prob, 2)}
-
-if __name__ == "__main__":
-    import uvicorn
-    uvicorn.run("src.app:app", host="0.0.0.0", port=8080)

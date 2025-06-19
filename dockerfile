@@ -8,9 +8,10 @@ WORKDIR /app
 COPY requirements.txt .
 RUN pip install --no-cache-dir -r requirements.txt
 
+# ─── 3.5 Download NLTK stopwords ──────────────────────────────
+RUN python -m nltk.downloader stopwords
+
 # ─── 4. Copy in the trained model artifact ────────────────────
-# (we ran `mlflow artifacts download … -o src/models/model.pkl`
-# in CI, so this folder now exists in the repo)
 COPY src/models ./src/models
 
 # ─── 5. Copy the rest of the source code ───────────────────────
