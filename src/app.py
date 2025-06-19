@@ -28,4 +28,4 @@ def predict(input: EmailInput):
 
 if __name__ == "__main__":
     import uvicorn
-    uvicorn.run("src.app:app", host="0.0.0.0", port=8000)
+    uvicorn.run("src.app:app", host="0.0.0.0", port=8080)
