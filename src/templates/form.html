@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Email Phishing Detector</title>
+</head>
+<body>
+  <h1>Email Phishing Prediction</h1>
+  <form action="/predict" method="post">
+    <textarea name="email" rows="10" cols="60" placeholder="Paste email text here"></textarea><br><br>
+    <input type="submit" value="Predict">
+  </form>
+
+  {% if result %}
+    <h2>Result:</h2>
+    <p><strong>Label:</strong> {{ result.label }}</p>
+    <p><strong>Confidence:</strong> {{ result.confidence }}</p>
+  {% endif %}
+</body>
+</html>
