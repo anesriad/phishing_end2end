@@ -8,7 +8,7 @@ WORKDIR /app
 COPY requirements.txt .
 RUN pip install --no-cache-dir -r requirements.txt
 
-# ─── 3.5 Download NLTK stopwords ──────────────────────────────
+# Download NLTK stopwords
 RUN python -m nltk.downloader stopwords
 
 # ─── 4. Copy in the trained model artifact ────────────────────
@@ -17,6 +17,9 @@ COPY src/models ./src/models
 # ─── 5. Copy the rest of the source code ───────────────────────
 COPY . .
 
-# ─── 6. Expose port & start ────────────────────────────────────
+# ─── 6. Copy HTML templates ────────────────────────────────────
+COPY src/templates ./src/templates
+
+# ─── 7. Expose port & start ────────────────────────────────────
 EXPOSE 8080
 CMD ["uvicorn", "src.app:app", "--host", "0.0.0.0", "--port", "8080"]
